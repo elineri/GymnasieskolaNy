@@ -29,18 +29,20 @@ namespace GymnasieskolaNy
                     case 1: // Show all staff
                         Console.Clear();
                         Console.WriteLine("  *** Personal ***\n");
-                        Console.WriteLine("  Vill du se all personal eller bara lärare?");
-                        Console.WriteLine("  [1] All personal\n" +
+                        Console.WriteLine("  Vill du se all personal eller bara lärare?\n" +
+                            "  [1] All personal\n" +
                             "  [2] Bara lärare");
+                        Console.Write("  Val: ");
                         int optionStaff = Int32.Parse(Console.ReadLine());
 
+                        Console.Clear();
                         if (optionStaff == 1)
                         {
-
+                            Console.WriteLine("  Se SQL query för att se personal");
                         }
                         else if (optionStaff == 2)
                         {
-
+                            Console.WriteLine("  Se SQL query för att se lärare");
                         }
                         break;
                     case 2: // Show all students
@@ -53,12 +55,15 @@ namespace GymnasieskolaNy
                         break;
                     case 4: // Show all grades from last month
                         Console.Clear();
+                        Console.WriteLine("  Se SQL query för att se betyg");
                         break;
                     case 5: // Show all courses and average grades
                         Console.Clear();
+                        Console.WriteLine("  Se SQL query för att se betyg");
                         break;
                     case 6: // Add a new student
                         Console.Clear();
+                        Console.WriteLine("  Se SQL query för att lägga till en ny elev");
                         break;
                     case 7: // Add new staff
                         Console.Clear();
@@ -67,6 +72,11 @@ namespace GymnasieskolaNy
                     default:
                         break;
                 }
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.WriteLine("\n  Klicka Enter för att återgå till menyn");
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.ReadKey();
+                Console.Clear();
             }
         }
 
@@ -95,9 +105,7 @@ namespace GymnasieskolaNy
 
                 foreach (var item in students)
                 {
-                    Console.WriteLine($"  Förnamn: {item.Eförnamn}\n" +
-                        $"  Efternamn: {item.Eefternamn}\n" +
-                        $"  Klass: {item.FklassId}");
+                    Console.WriteLine($"  {item.Eförnamn} {item.Eefternamn}");
                     Console.WriteLine();
                 }
 
@@ -112,9 +120,7 @@ namespace GymnasieskolaNy
 
                 foreach (var item in students)
                 {
-                    Console.WriteLine($"  Förnamn: {item.Eförnamn}\n" +
-                        $"  Efternamn: {item.Eefternamn}\n" +
-                        $"  Klass: {item.FklassId}");
+                    Console.WriteLine($"  {item.Eförnamn} {item.Eefternamn}");
                     Console.WriteLine();
                 }
             }
@@ -128,9 +134,7 @@ namespace GymnasieskolaNy
 
                 foreach (var item in students)
                 {
-                    Console.WriteLine($"  Förnamn: {item.Eförnamn}\n" +
-                        $"  Efternamn: {item.Eefternamn}\n" +
-                        $"  Klass: {item.FklassId}");
+                    Console.WriteLine($"  {item.Eefternamn}, {item.Eförnamn}");
                     Console.WriteLine();
                 }
             }
@@ -144,14 +148,10 @@ namespace GymnasieskolaNy
 
                 foreach (var item in students)
                 {
-                    Console.WriteLine($"  Förnamn: {item.Eförnamn}\n" +
-                        $"  Efternamn: {item.Eefternamn}\n" +
-                        $"  Klass: {item.FklassId}");
+                    Console.WriteLine($"  {item.Eefternamn}, {item.Eförnamn}");
                     Console.WriteLine();
                 }
             }
-
-            Console.ReadKey();
         }
 
         static void GetStudentsClass()
@@ -189,8 +189,6 @@ namespace GymnasieskolaNy
             {
                 Console.WriteLine($"  {item.Eförnamn} {item.Eefternamn}");
             }
-
-            Console.ReadKey();
         }
 
         static void AddNewStaff()
@@ -221,8 +219,6 @@ namespace GymnasieskolaNy
             Console.WriteLine($"  Ny personal har lagts till:\n" +
                 $"  Namn:\t\t {fName} {lName}\n" +
                 $"  Befattning:\t {role}");
-
-            Console.ReadKey();
         }
     }
 }
